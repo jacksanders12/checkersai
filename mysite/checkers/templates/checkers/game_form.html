@@ -1,0 +1,12 @@
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+    {% for game in games %}
+    <input type="submit" onclick="window.location='{% url 'checkers:game' game.id %}' ; return false;" value="Cancel">
+    {% endfor %}
+  </form>
+{% endblock %}
